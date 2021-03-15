@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace GiocoPlus\WMLIVE\Contract;
 /**
- * 交易
+ * 完美真人
  */
 interface WMLIVEServiceInterface {
 
@@ -13,9 +13,10 @@ interface WMLIVEServiceInterface {
      * @param string $account
      * @param string $game_code
      * @param string $language
-     * @return void
+     * @param string $back_url
+     * @return mixed
      */
-    function gameLaunch(string $op_code, string $account, string $game_code, string $language);
+    function gameLaunch(string $op_code, string $account, string $game_code, string $language, string $back_url = null);
 
     /**
      * 遊戲詳情
@@ -31,8 +32,17 @@ interface WMLIVEServiceInterface {
      *
      * @param string $op_code
      * @param integer $past_minutes
+     * @param string $cache_key
      * @return mixed
      */
-    function betLogGrabber(string $op_code, int $past_minutes);
+    function betLogGrabber(string $op_code, int $past_minutes, string $cache_key);
+
+    /**
+     * 全營商 抓取遊戲紀錄
+     *
+     * @param integer $past_minutes
+     * @return mixed
+     */
+    function betLogGrabberAll(int $past_minutes);
 }
 
