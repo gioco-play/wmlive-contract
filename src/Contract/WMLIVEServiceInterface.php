@@ -56,10 +56,11 @@ interface WMLIVEServiceInterface {
 
     /**
      * 遊戲商帳號轉換為營商帳號
+     * @param string $op_code
      * @param array $vendor
      * @param string $vendor_account
      * @return mixed
      */
-    function accountToOperator(array $vendor, string $vendor_account);
+    function accountToOperator(string $op_code, array $vendor, string $vendor_account);
 }
 
